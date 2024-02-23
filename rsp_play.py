@@ -1,23 +1,68 @@
 import random
-rsp = ['가위', '바위', '보']
-computer_random = random.choice(rsp)
+
+
+def check_winner():
+    draw_cnt = 0
+    win_cnt = 0
+    lose_cnt = 0
+
+    rsp = ['가위', '바위', '보']
+    computer_pick = random.choice(rsp)
+
+    while True:
+        user_pick = input('가위, 바위, 보 중 하나를 선택하세요: ')
+        if user_pick not in rsp:
+            print('유효한 입력이 아닙니다')
+            continue
+
+        if user_pick == '가위':
+            if computer_pick == '가위':
+                print('비겼어요!')
+                draw_cnt += 1
+                break
+            elif computer_pick == '바위':
+                print('컴퓨터 승리!')
+                lose_cnt += 1
+            elif computer_pick == '보':
+                print('사용자 승리!')
+                win_cnt += 1
+            print(f'사용자: {user_pick}, 컴퓨터: {computer_pick}')
+        elif user_pick == '바위':
+            if computer_pick == '가위':
+                print('사용자 승리!')
+                win_cnt += 1
+            elif computer_pick == '바위':
+                print('비겼어요!')
+                draw_cnt += 1
+                break
+            elif computer_pick == '보':
+                print('컴퓨터 승리!')
+                lose_cnt += 1
+            print(f'사용자: {user_pick}, 컴퓨터: {computer_pick}')
+        elif user_pick == '보':
+            if computer_pick == '가위':
+                print('컴퓨터 승리!')
+                lose_cnt += 1
+            elif computer_pick == '바위':
+                print('사용자 승리!')
+                win_cnt += 1
+            elif computer_pick == '보':
+                print('비겼어요!')
+                draw_cnt += 1
+                break
+            print(f'사용자: {user_pick}, 컴퓨터: {computer_pick}')
+    return draw_cnt, win_cnt, lose_cnt
+
 
 while True:
-    user_choice = input('가위, 바위, 보 중 하나를 선택하세요: ')
-    if user_choice not in rsp:
-        print('유효한 입력이 아닙니다')
-        continue
+    # check_winner() 삭제
+    draw_cnt, win_cnt, lose_cnt = check_winner()
+    restart = input('다시 시작하시겠습니까? (y/n): ')
+    if restart == 'y':
+        print('게임을 재시작합니다')
+    elif restart == 'n':
+        print('게임을 종료합니다')
+        print(f'승:{win_cnt}, 무:{draw_cnt}, 패:{lose_cnt}')
+        break
     else:
         break
-
-print(f'사용자: {user_choice}, 컴퓨터: {computer_random}')
-
-while True:
-    if user_choice == computer_random:
-        print('비겼습니다!')
-    elif (user_choice == rsp[0] and computer_random == rsp[2]) or (user_choice == rsp[1] and computer_random == rsp[0]) or (user_choice == rsp[2] and computer_random == rsp[1]):
-        print('사용자 승리!')
-    else:
-        print('컴퓨터 승리!')
-        break
-print(input('다시 하시겠습니까? (y/n): '))
