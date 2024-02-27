@@ -33,7 +33,7 @@ with app.app_context():
 
 # 가위바위보 게임
 def check_winner():
-
+    
     rsp = ['가위', '바위', '보']
     computer_pick = random.choice(rsp)
     user_pick = request.form.get("user_pick")
