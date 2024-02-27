@@ -88,15 +88,16 @@
 <body>
     <h1 style="margin-top: 20px;">가위바위보 게임</h1>
     <form action="{{ url_for('save_to_db') }}" method="POST">
-        <div class="input-group">
-            <select class="form-select" name="user_pick" id="inputGroupSelect04" aria-label="Example select with button addon">
-                <option selected>user's choice</option>
-                <option value="가위">가위</option>
-                <option value="바위">바위</option>
-                <option value="보">보</option>
-            </select>
-            <button class="btn btn-outline-secondary" type="submit">제출하기</button>
-        </div>
+        <label for="user_pick"></label>
+            <div class="input-group">
+                <select class="form-select" name="user_pick" id="inputGroupSelect04" aria-label="Example select with button addon">
+                    <option selected>user's choice</option>
+                    <option value="가위">가위</option>
+                    <option value="바위">바위</option>
+                    <option value="보">보</option>
+                </select>
+                <button class="btn btn-outline-secondary" type="submit">제출하기</button>
+            </div>
     </form>
 
     {% if data %}
@@ -108,10 +109,11 @@
 
     <br>
     <div class="record-container">
-        <div class="record">승 : </div>
-        <div class="record">무 : </div>
-        <div class="record">패 : </div>
+        <div class="record">승 : {{ win_cnt }}</div>
+        <div class="record">무 : {{ draw_cnt }}</div>
+        <div class="record">패 : {{ lost_cnt }}</div>
     </div>
+
 
 
     <br><br>
@@ -124,7 +126,7 @@
         </tr>
         {% for i in data %}
         <tr>
-            <th>{{i}}</th>  
+            <th>{{ loop.index }}</th>  
             <th>사용자: {{ i.user_pick }}</th>
             <th>컴퓨터: {{ i.computer_pick }}</th>
             <th>결과: {{ i.result }}</th>
