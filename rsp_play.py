@@ -18,15 +18,15 @@ def check_winner():
         if user_pick == computer_pick:
             print('비겼어요!')
             draw_cnt += 1
-        elif (user_pick == '가위' and computer_pick == '보') or (user_pick == '바위' and computer_pick == '가위') or (user_pick == '보' and computer_pick == '바위'):
+        elif (user_pick=='가위' and computer_pick=='보') or (user_pick=='바위' and computer_pick=='가위') or (user_pick=='보' and computer_pick=='바위'):
             print('사용자 승리!')
             win_cnt += 1
             break
         else:
-            lost_cnt += 1
             print('컴퓨터 승리!')
+            lost_cnt += 1
         print(f'사용자: {user_pick}, 컴퓨터: {computer_pick}')
-    return draw_cnt, win_cnt, lost_cnt
+    return win_cnt, draw_cnt, lost_cnt
 
 
 while True:
