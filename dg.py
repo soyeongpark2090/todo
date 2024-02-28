@@ -7,8 +7,9 @@ def check_winner(win_cnt, draw_cnt, lost_cnt):
 
     while True:
         computer_pick = random.choice(rsp)
-        user_pick = input('sciss, rock, paper 중 하나를 선택하세요: ')
+        user_pick = input('가위, 바위, 보 중 하나를 선택하세요: ')
         user_pick = user_pick.lower()
+        print(user_pick)
         if user_pick not in rsp:
             print('유효한 입력이 아닙니다')
             continue
