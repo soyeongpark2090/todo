@@ -33,7 +33,7 @@ with app.app_context():
 
 # 가위바위보 게임
 def check_winner():
-    
+
     rsp = ['가위', '바위', '보']
     computer_pick = random.choice(rsp)
     user_pick = request.form.get("user_pick")
@@ -70,7 +70,7 @@ def save_to_db():
 #     win_cnt = 0
 #     draw_cnt = 0
 #     lost_cnt = 0
-    
+
 #     record_list = Rsp_play.query.all()
 #     for record in record_list:
 #         if record.result == '사용자 승리!':
@@ -80,17 +80,17 @@ def save_to_db():
 #         else:
 #             lost_cnt += 1
 #         return render_template('index.html', win_cnt = win_cnt, draw_cnt = draw_cnt, lost_cnt = lost_cnt)
-            
+
 
 # 메인페이지
 @app.route("/")
 def home():
     pick_list = Rsp_play.query.all()
-    
+
     win_cnt = 0
     draw_cnt = 0
     lost_cnt = 0
-    
+
     record_list = Rsp_play.query.all()
     for record in record_list:
         if record.result == '사용자 승리!':
@@ -99,7 +99,7 @@ def home():
             draw_cnt += 1
         else:
             lost_cnt += 1
-    return render_template('index.html', data=pick_list, win_cnt = win_cnt, draw_cnt = draw_cnt, lost_cnt = lost_cnt)
+    return render_template('index.html', data=pick_list, win_cnt=win_cnt, draw_cnt=draw_cnt, lost_cnt=lost_cnt)
 
 
 if __name__ == '__main__':
