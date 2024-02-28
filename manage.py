@@ -22,6 +22,14 @@ for i in range(3):
     username = input(f'회원 아이디{i+1}를 입력하세요: ')
     password = input(f'회원 {i+1}의 비밀번호를 입력하세요: ')
     users.append(Member(name, username, password))
+    # print(users) 이렇게 검색하면 메모리 주소만 나옴(그게 정상)
+
+# 참고: print(i)하면 출력값: 0,1,2
+# for i in range(3):
+#     name = input(f'회원 이름{i+1}을 입력하세요 : ')
+#     username = input(f'회원 아이디{i+1}를 입력하세요: ')
+#     password = input(f'회원 {i+1}의 비밀번호를 입력하세요: ')
+#     print(i)
 
 for user in users:
     print(user.name)
@@ -33,6 +41,7 @@ for i in range(9):
     content = input(f'게시물{i+1}의 내용을 입력하세요: ')
     author = input(f'게시물{i+1}의 작성자를 입력하세요: ')
     posts.append(Post(title, content, author))
+    # print(posts) 이렇게 검색하면 메모리 주소만 나옴(그게 정상)
 
 # p1 = Post('title_1', '민지는 10살입니다', m1.username)
 # p2 = Post('title_2', '영수는 25살입니다', m2.username)
