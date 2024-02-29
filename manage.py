@@ -39,7 +39,7 @@ posts = []
 for i in range(9):
     title = input(f'게시물{i+1}의 제목을 입력하세요: ')
     content = input(f'게시물{i+1}의 내용을 입력하세요: ')
-    author = input(f'게시물{i+1}의 작성자를 입력하세요: ')
+    author = input(f'게시물{i+1}의 작성자의 아이디를 입력하세요: ')
     posts.append(Post(title, content, author))
     # print(posts) 이렇게 검색하면 메모리 주소만 나옴(그게 정상)
 
